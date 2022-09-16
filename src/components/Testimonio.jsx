@@ -1,25 +1,22 @@
 import React from "react";
 import "../stylesheets/Testimonio.css";
 
-const Testimonio = () => {
+const Testimonio = (props) => {
   return (
     <div className="contenedor-testimonio">
       <img
         className="imagen-testimonio"
-        src={require("../image/testimonio-emma.png")}
-        alt="Foto de Emma"
+        src={require(`../image/testimonio-${props.imagen}.png`)}
+        alt={`Foto de ${props.imagen}`}
       />
       <div className="contenedor-text-testimonio">
-        <p className="nombre-testimonio">Emma Bostina en Suecia</p>
-        <p className="cargo-testimonio">Ingeniera de Software en Spotify</p>
-        <p className="texto-testimonio">
-          "Siempre he tenido problemas para aprender JavaScript. He tomado
-          muchos cursos, pero el curso de freeCodeCamp fue el que se quedó.
-          Estudiar JavaScript, así como estructuras de datos y algoritmos en
-          freeCodeCamp me dio las habilidades y la confianza que necesitaba para
-          conseguir el trabajo de mis sueños como ingeniero de software en
-          Spotify."
+        <p className="nombre-testimonio">
+          <strong>{props.nombre}</strong> en {props.pais}
         </p>
+        <p className="cargo-testimonio">
+          {props.cargo} en <strong>{props.empresa}</strong>
+        </p>
+        <p className="texto-testimonio">"{props.testimonio}"</p>
       </div>
     </div>
   );
